@@ -8,69 +8,27 @@ class Exchange1cModule extends WebModule
 	public $readFileCategory     = 'category.csv';
 	public $columnSeparator      = ';';
 	public $arrayCorrespondences = [
-		'Product'=>[
-			'id'               => '{2}',  // ID
-			'category_id'      => '{0}',  // Category
-			// 'type_id'          => '',  // Type
-			// 'name'             => '',  // Title
-			// 'price'            => '',  // Price
-			// 'discount_price'   => '',  // Discount price
-			// 'discount'         => '',  // Discount, %
-			// 'sku'              => '',  // SKU
-			'image'            => '{2}',  // Image
-			'short_description'=> 'Артикул: {5}; {4}',  // Short description
-			// 'description'      => '',  // Description
-			// 'alias'            => '',  // Alias
-			// 'data'             => '',  // Data
-			// 'status'           => '',  // Status
-			// 'create_time'      => '',  // Added
-			// 'update_time'      => '',  // Updated
-			// 'user_id'          => '',  // User
-			// 'change_user_id'   => '',  // Editor
-			// 'is_special'       => '',  // Special
-			// 'length'           => '',  // Length, m.
-			// 'height'           => '',  // Height, m.
-			// 'width'            => '',  // Width, m.
-			// 'weight'           => '',  // Weight, kg.
-			// 'quantity'         => '',  // Quantity
-			// 'producer_id'      => '',  // Producer
-			// 'in_stock'         => '',  // Stock status
-			// 'category'         => '',  // Category
-			// 'meta_title'       => '',  // Meta title
-			// 'meta_keywords'    => '',  // Meta keywords
-			// 'meta_description' => '',  // Meta description
-			// 'purchase_price'   => '',  // Purchase price
-			// 'average_price'    => '',  // Average price
-			// 'recommended_price'=> '',  // Recommended price
-			// 'position'         => '',  // Position
-		],
-		'StoreCategory'=>[
-			'id'               => '{0}',  // Id
-			// 'parent_id'        => '',  // Родитель
-			'name'             => '{1}',  // Название
-			// 'image'            => '',  // Изображение
-			// 'short_description'=> '',  // Краткое описание
-			// 'description'      => '',  // Полное описание
-			// 'alias'            => '',  // Alias
-			// 'meta_title'       => '',  // Meta title
-			// 'meta_keywords'    => '',  // Meta keywords
-			// 'meta_description' => '',  // Meta description
-			// 'status'           => '',  // Статус
-			// 'sort'             => '',  // Порядок сортировки
-		],
 		'Producer'=>[
 			// 'id'                => '',  // ID
             'name_short'        => '{6}',  // Short title
             'name'              => '{6}',  // Title
-            // 'slug'              => '',  // URL
-            // 'status'            => '',  // Status
-            // 'order'             => '',  // Order
-            // 'image'             => '',  // Image
-            // 'short_description' => '',  // Short description
-            // 'description'       => '',  // Description
-            // 'meta_title'        => '',  // Meta title
-            // 'meta_keywords'     => '',  // Meta keywords
-            // 'meta_description'  => '',  // Meta description
+            'slug'              => '{6}',  // URL
+            'status'            => '1',  // Status
+		],
+		'StoreCategory'=>[
+			'id'               => '{0}',  // Id
+			'name'             => '{1}',  // Название
+		],
+		'Product'=>[
+			'category_id'      => '{0}',  // Category
+			'name'             => '{3}',  // Title
+			'price'            => '{5}',  // Price
+			'image'            => '{2}',  // Image
+			'short_description'=> 'Артикул: {5}; {4}',  // Short description
+			'length'           => '0.000',  // Length, m.
+			'height'           => '0.000',  // Height, m.
+			'width'            => '0.000',  // Width, m.
+            'slug'             => '{3}',  // URL
 		]
 	];
 
