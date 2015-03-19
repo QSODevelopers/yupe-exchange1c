@@ -25,7 +25,7 @@ class DefaultController extends \yupe\components\controllers\FrontController
                             function($matches) use ($rowArray){
                                 $s = '';
                                 foreach ($matches as $value) {
-                                    $s .= $rowArray[$value];
+                                    $s .= (new ConvertChars)->convertToType($rowArray, $value);
                                 }
                                 return $s;
                             }
@@ -34,7 +34,7 @@ class DefaultController extends \yupe\components\controllers\FrontController
                         switch ($key) {
                             case 'id': $span = (int)$span;
                                 break;
-                             case 'category_id': $span = (int)$span;
+                            case 'category_id': $span = (int)$span;
                                 break;
                             case 'price': $span = (int)$span;
                                 break;
@@ -43,33 +43,34 @@ class DefaultController extends \yupe\components\controllers\FrontController
                         }
                         $attributes[$key] = $span;
                     }
-                    print_r($attributes['slug']);
-                    /*if (isset($attributes['id'])) {
+
+                    if (isset($attributes['id'])) {
                         $model = CActiveRecord::model($modelName)->findByPk($attributes['id']);
-                    }else if(isset($attributes['name'])){
+                    }else if(isset($attributes['name'])) {
                         $model = CActiveRecord::model($modelName)->findByAttributes(['name'=>$attributes['name']]);
                     }
 
                     if ($model===null)
                         $model = CActiveRecord::model($modelName);
 
-                    $model->attributes = $attributes;*/ // Сформированный массим атрибутов для определенной моедели.
-
-                    // echo '<pre>';
-                    // print_r($model->attributes);
-                    // Yii::app()->end();
-                    // echo '</pre>';
+                    // $model->attributes = $attributes; // Сформированный массим атрибутов для определенной моедели.
                     
-                    /*if ($model->save()) {
+                    print_r($attributes);
+
+                    /*if ($modelName=="Product" && $model->save()) {
                         echo 'ok<br>';
                     } else {
-                        print_r($model->errors);
-                        print_r($model->attributes);
-                        print_r($attributes);
+                        // print_r($model->errors);
+                        // print_r($model->attributes);
+                        // print_r($attributes);
                     }*/
+                    /*if ($modelName=='Product'){
+                        print_r($attributes);
                         echo '<hr>';
+                    }*/
 
                 }
+                echo '<hr>';
 
             }
 
@@ -95,4 +96,6 @@ class DefaultController extends \yupe\components\controllers\FrontController
             echo '</pre>';
         }
     }
+
+    public function 
 }

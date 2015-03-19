@@ -20,6 +20,7 @@ class Exchange1cModule extends WebModule
 			'name'             => '{1}',  // Название
 		],
 		'Product'=>[
+			'id'               => '{2}',  // Category
 			'category_id'      => '{0}',  // Category
 			'name'             => '{3}',  // Title
 			'price'            => '{5}',  // Price
