@@ -8,6 +8,7 @@ return [
     'rules'     => [
         '/exchange/index'=>'exchange1c/default/index',
         '/exchange/test-read/<size:\d+>'=>'exchange1c/default/testRead',
+        '/exchange/<action:\w+>'=>'exchange1c/default/<action>',
     ],
 ];
 

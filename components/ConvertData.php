@@ -2,7 +2,7 @@
 /**
 * 
 */
-class ConvertChars extends CApplicationComponent
+class ConvertData extends CApplicationComponent
 {
     
     public function convert($str)
@@ -20,13 +20,28 @@ class ConvertChars extends CApplicationComponent
             "э"=>"e", "ю"=>"yu", "я"=>"ya", " "=> "-", "."=> "", "/"=> "-", ","=>"-",
             "-"=>"-", "("=>"", ")"=>"", "["=>"", "]"=>"", "="=>"-", "+"=>"-",
             "*"=>"", "?"=>"", "\""=>"", "'"=>"", "&"=>"", "%"=>"", "#"=>"", "@"=>"",
-            "!"=>"", ";"=>"", "№"=>"", "^"=>"", ":"=>"", "~"=>"", "\\"=>""];
+            "!"=>"", ";"=>"", "№"=>"", "^"=>"", ":"=>"", "~"=>"", "\\"=>""
+        ];
         return strtr($str,$tr);
     }
 
-    public function convertToType($array)
+    public function convertToType($val, $attr, $rowArray)
     {
+        $elem = explode(':', trim($val,'{}'));
+        $result = $rowArray[current($elem)];
 
+        if($attr=='slug' or $attr=='alias') {
+            $result = $this->convert($result);
+        }
+
+        if (count($elem) <= 1)
+            return $result; // без преобразования типа
+
+        else{
+            // нужно преобразовать
+            settype($result, $elem[1]);
+            return $result;
+        }
     }
 }
 ?>

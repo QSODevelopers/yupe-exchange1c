@@ -10,25 +10,28 @@ class Exchange1cModule extends WebModule
 	public $arrayCorrespondences = [
 		'Producer'=>[
 			// 'id'                => '',  // ID
-            'name_short'        => '{6}',  // Short title
+            'name_short'        => '{6:string}',  // Short title
             'name'              => '{6}',  // Title
             'slug'              => '{6}',  // URL
             'status'            => '1',  // Status
 		],
 		'StoreCategory'=>[
-			'id'               => '{0}',  // Id
-			'name'             => '{1}',  // Название
+			'id_1c'                => '{0:int}',
+			'name'              => '{1}',
+			'alias'             => '{1}',
+			'status'            => '1',
+			'sort'              => '{0:int}',
 		],
 		'Product'=>[
-			'id'               => '{2}',  // Category
+			'id_1c'               => '{2:int}',  // Category
 			'category_id'      => '{0}',  // Category
 			'name'             => '{3}',  // Title
-			'price'            => '{5}',  // Price
-			'image'            => '{2}',  // Image
+			// 'price'            => '{5:float}',  // Price
+			// 'image'            => '{2}',  // Image
 			'short_description'=> 'Артикул: {5}; {4}',  // Short description
-			'length'           => '0.000',  // Length, m.
-			'height'           => '0.000',  // Height, m.
-			'width'            => '0.000',  // Width, m.
+			// 'length'           => '0.000',  // Length, m.
+			// 'height'           => '0.000',  // Height, m.
+			// 'width'            => '0.000',  // Width, m.
             'slug'             => '{3}',  // URL
 		]
 	];
