@@ -9,30 +9,29 @@ class Exchange1cModule extends WebModule
 	public $columnSeparator      = ';';
 	public $arrayCorrespondences = [
 		'Producer'=>[
-			// 'id'                => '',  // ID
-            'name_short'        => '{6:string}',  // Short title
-            'name'              => '{6}',  // Title
-            'slug'              => '{6}',  // URL
-            'status'            => '1',  // Status
+			// 'id'                => '',
+            'name_short'        => '{6:string}',
+            'name'              => '{6}',
+            'slug'              => '{6}',
+            'status'            => '1',
 		],
 		'StoreCategory'=>[
-			'id_1c'                => '{0:int}',
+			'id_1c'             => '{0:int}',
 			'name'              => '{1}',
 			'alias'             => '{1}',
 			'status'            => '1',
 			'sort'              => '{0:int}',
 		],
 		'Product'=>[
-			'id_1c'               => '{2:int}',  // Category
-			'category_id'      => '{0}',  // Category
-			'name'             => '{3}',  // Title
-			// 'price'            => '{5:float}',  // Price
-			// 'image'            => '{2}',  // Image
-			'short_description'=> 'Артикул: {5}; {4}',  // Short description
-			// 'length'           => '0.000',  // Length, m.
-			// 'height'           => '0.000',  // Height, m.
-			// 'width'            => '0.000',  // Width, m.
-            'slug'             => '{3}',  // URL
+			'id_1c'             => '{2:int}',
+			'category_id'       => '{0:int}',
+			'name'              => '{3}',
+			'status'            => '1',
+			'is_special'        => '0',
+			'in_stock'          => '1',
+			'price'             => '{5:int}',
+			'short_description' => 'Артикул: {5}; {4}',
+            'slug'              => '{3}',  // URL
 		]
 	];
 

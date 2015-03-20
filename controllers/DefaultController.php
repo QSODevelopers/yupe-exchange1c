@@ -8,6 +8,8 @@ class DefaultController extends \yupe\components\controllers\FrontController
         $readableFile = Yii::getPathOfAlias('webroot').$this->module->folderFiles;
         $content = @file_get_contents($readableFile.'/'.$this->module->readFileProducts);
 
+        $errors = [];
+
         // print_r($this->module->arrayCorrespondences);
 
         if ($content) {
@@ -18,8 +20,9 @@ class DefaultController extends \yupe\components\controllers\FrontController
                 $rowArray = explode($this->module->columnSeparator, $row);                 // разбитие строки на массив
 
                 $record = new DataRecording;
+                $record->id = $key;
                 foreach ($this->module->arrayCorrespondences as $modelName=>$attributes) { // Разбитие на модели
-                    foreach ($attributes as $attr => $value) {                              // проверка атрибутов модели
+                    foreach ($attributes as $attr => $value) {                             // проверка атрибутов модели
                         $span = preg_replace_callback("/{[\d]+[:\w]*}/",
                             function($matches) use ($attr, $rowArray){
                                 foreach ($matches as $val) {
@@ -33,10 +36,11 @@ class DefaultController extends \yupe\components\controllers\FrontController
                     $record->setAttributes($modelName, $attributes);
                 }
                 $record->saveData();
-
+                $errors[] = $record->errors;
             }
 
         }
+        print_r($errors);
         // $this->render('index');
 	}
 
