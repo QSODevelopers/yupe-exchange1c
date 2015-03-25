@@ -8,29 +8,33 @@ class Exchange1cModule extends WebModule
 	public $readFileCategory     = 'category.csv';
 	public $columnSeparator      = ';';
 	public $arrayCorrespondences = [
-		'Producer'=>[
+		'Producer'=> [
 			// 'id'                => '',
-            'name_short'        => '{6:string}',
-            'name'              => '{6}',
-            'slug'              => '{6}',
+            'id_1c'             => '{6}',
+            'name_short'        => '{7:string}',
+            'name'              => '{7}',
+            'slug'              => '{7}',
             'status'            => '1',
 		],
-		'StoreCategory'=>[
+		'StoreCategory' => [
 			'id_1c'             => '{0:int}',
 			'name'              => '{1}',
 			'alias'             => '{1}',
 			'status'            => '1',
 			'sort'              => '{0:int}',
 		],
-		'Product'=>[
+		'Product' => [
 			'id_1c'             => '{2:int}',
 			'category_id'       => '{0:int}',
 			'name'              => '{3}',
+			'quantity'          => '{11}',
+			'image'             => '{2:int}.{12}',
 			'status'            => '1',
 			'is_special'        => '0',
 			'in_stock'          => '1',
-			'price'             => '{5:int}',
-			'short_description' => 'Артикул: {5}; {4}',
+			'price'             => '{10:int}',
+			'short_description' => 'Артикул: {5}; Производитель: {7} {4}',
+			'description'       => '{13}',
             'slug'              => '{3}',  // URL
 		]
 	];

@@ -14,33 +14,18 @@ class DefaultController extends \yupe\components\controllers\FrontController
 
         if ($content) {
 
-            foreach (explode("\n", $content) as $key => $row) {                            // разбитие по строке
+            foreach (explode("\n", $content) as $id => $string) {                            // разбитие по строке
 
-                $row = trim($row, $this->module->columnSeparator."\r");
-                $rowArray = explode($this->module->columnSeparator, $row);                 // разбитие строки на массив
-
+                // $record = new DataRecording($id, $string);
                 $record = new DataRecording;
-                $record->id = $key;
-                foreach ($this->module->arrayCorrespondences as $modelName=>$attributes) { // Разбитие на модели
-                    foreach ($attributes as $attr => $value) {                             // проверка атрибутов модели
-                        $span = preg_replace_callback("/{[\d]+[:\w]*}/",
-                            function($matches) use ($attr, $rowArray){
-                                foreach ($matches as $val) {
-                                    $s = (new ConvertData)->convertToType($val, $attr, $rowArray);
-                                }
-                                return $s;
-                            }
-                        , $value);
-                        $attributes[$attr] = $span;
-                    }
-                    $record->setAttributes($modelName, $attributes);
-                }
-                $record->saveData();
-                $errors[] = $record->errors;
+                $record->startLine(++$id, $string);
+                
+                print_r($record);
+                Yii::app()->end();
             }
 
         }
-        print_r($errors);
+        // print_r($errors);
         // $this->render('index');
 	}
 
