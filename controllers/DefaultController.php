@@ -21,7 +21,6 @@ class DefaultController extends \yupe\components\controllers\FrontController
                 $record->startLine(++$id, $string);
                 
                 print_r($record);
-                Yii::app()->end();
             }
 
         }

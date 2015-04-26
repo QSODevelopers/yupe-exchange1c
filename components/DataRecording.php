@@ -137,6 +137,9 @@ class DataRecording extends CApplicationComponent
 		}
 	}
 
+	/**
+	 * Метод осуществляющий запись в базу
+	 */
 	public function saveData()
 	{
 		$attrs = $this->modelsAttributes;
